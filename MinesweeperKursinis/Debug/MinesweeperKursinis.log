@@ -1,0 +1,3 @@
+﻿  Minesweeper.cpp
+C:\Users\white\Desktop\Minesweeper\MinesweeperKursinis\MinesweeperKursinis\Minesweeper.cpp(215,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MinesweeperKursinis.vcxproj -> C:\Users\white\Desktop\Minesweeper\MinesweeperKursinis\Debug\MinesweeperKursinis.exe
