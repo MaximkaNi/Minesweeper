@@ -3,6 +3,8 @@
 
 using namespace std;
 
+const int SIZE = 10;
+
 void enterMove(int* r, int* c)
 {
     cout << "Enter row and column:";
