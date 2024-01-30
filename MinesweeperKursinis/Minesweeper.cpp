@@ -43,7 +43,7 @@ bool isInside(int row, int column) //Neaišku kas yra isInside, mina ar ėjimas,
 
 bool isMine(int row, int column, char table[][EDGE])
 {
-    if (table[row][column] == 'X')  //Galima sumažinti kodą pakeičius if ir else į return (table[row][column] == 'X');
+    if (table[row][column] == 'X')  //Galima sumažinti kodą pakeičius if ir else į "return (table[row][column] == 'X');" taip kodas bus mažesnis ir lengviau skaitomas
         return (true);
     else
         return (false);
@@ -51,6 +51,7 @@ bool isMine(int row, int column, char table[][EDGE])
 
 
 int scanMinesAround(int row, int column, int mines[][2], char hiddenTable[][EDGE]) //Funckija per didelė, daug kartu kartojasi tas pats šablonas. Galima panaudoti ciklą ir kodas tas mažesnis.
+//int mines geriau pakeisti į int mineLocations, kad kodas būtų aiškesnis
 {
     int amount = 0;  //Neaiškus kintamasis, reikia pakomentuoti arba pervadinti pvz.: amountOfMines
 
