@@ -3,38 +3,38 @@
 
 using namespace std;
 
-const int SIZE = 10;
+const int SIZE = 12; //Neaiškus dydis, reikia arba pakomentuoti arba suteikti tinkama pavadinima konstantai
 
-void enterMove(int* r, int* c)
+void enterMove(int r, int c)
 {
     cout << "Enter row and column:";
-    cin >> *r >> *c;
+    cin >> r >> c;  //Neaiškus kintamieji, geriau naudoti row and column
     return;
 }
 
-void printTable(char visibleTable[][EDGE])
-{
-    cout << "X ";
+void printTable(char visibleTable[][EDGE]) {  //Funkcijoje naudojami C standartai, geriau naudoti "std::cout << i << std::endl;" vietoj "printf("%d\n", i);" ir taip visoje funkcijoje.
+    printf("X "); //C standartas
 
-    for (int i = 0; i < EDGE; i++)
-    {
-        if(i == EDGE - 1) cout << i << endl;
-        else cout << i << " ";
+    for (int i = 0; i < EDGE; i++) {
+        if (i == EDGE - 1)
+            printf("%d\n", i);  //C standartas
+        else
+            printf("%d ", i);  //C standartas
     }
 
-
-    for (int i = 0; i < EDGE; i++)
-    {
-        cout << i << " ";
+    for (int i = 0; i < EDGE; i++) {
+        printf("%d ", i);  //C standartas
 
         for (int j = 0; j < EDGE; j++)
-            cout << visibleTable[i][j] << " ";
-        cout << endl;
+            printf("%c ", visibleTable[i][j]);  //C standartas
+        
+        printf("\n");  //C standartas
     }
+
     return;
 }
 
-bool isInside(int row, int column)
+bool isInside(int row, int column) //Neaišku kas yra isInside, mina ar ėjimas, reikia suteikti funckijai suprantamesnį pavadinimą, pvz.: isInputInside
 {
 
     return (row >= 0) && (row < EDGE) &&
@@ -43,17 +43,16 @@ bool isInside(int row, int column)
 
 bool isMine(int row, int column, char table[][EDGE])
 {
-    if (table[row][column] == 'X')
+    if (table[row][column] == 'X')  //Galima sumažinti kodą pakeičius if ir else į return (table[row][column] == 'X');
         return (true);
     else
         return (false);
 }
 
 
-int scanMinesAround(int row, int column, int mines[][2],
-    char hiddenTable[][EDGE])
+int scanMinesAround(int row, int column, int mines[][2], char hiddenTable[][EDGE]) //Funckija per didelė, daug kartu kartojasi tas pats šablonas. Galima panaudoti ciklą ir kodas tas mažesnis.
 {
-    int amount = 0;
+    int amount = 0;  //Neaiškus kintamasis, reikia pakomentuoti arba pervadinti pvz.: amountOfMines
 
     if (isInside(row - 1, column) == true)
     {
